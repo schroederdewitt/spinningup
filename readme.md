@@ -14,6 +14,10 @@ Got to a new Terminal tab (keep container running in the other tab)
 - Run ```docker exec -it <ID> /bin/bash```
 - Run ```PYTHONPATH=`pwd` python3 spinup/examples/pytorch/bench_ppo_cartpole.py```
 
+Make sure any experiment output is copied docker path ```/results``` before killing the docker container, else all is lost! This folder is mapped to ```~/spinningup/results``` on the host machine.
+
+Kill docker container: ```docker kill <ID>```
+
 **Status:** Maintenance (expect bug fixes and minor updates)
 
 Welcome to Spinning Up in Deep RL! 
