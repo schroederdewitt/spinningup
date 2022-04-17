@@ -12,12 +12,26 @@ else
   cmd=docker
 fi
 
-NV_GPU="$GPU" ${cmd} run \
+container_id=$(NV_GPU="$GPU" ${cmd} run --detach \
     --gpus all \
     --name $name \
     --user $(id -u) \
+    --env OMPI_MCA_btl_vader_single_copy_mechanism="none" \
     -v `pwd`:/spinningup \
     -v `pwd`/results:/results \
     -v `pwd`/runs:/runs \
     -t spinningup \
-    ${@:2}
+    ${@:2} &)
+
+docker exec -it $container_id /bin/bash
+
+#NV_GPU="$GPU" ${cmd} run \
+#    --gpus all \
+#    --name $name \
+#    --user $(id -u) \
+#    --env OMPI_MCA_btl_vader_single_copy_mechanism="none" \
+#    -v `pwd`:/spinningup \
+#    -v `pwd`/results:/results \
+#    -v `pwd`/runs:/runs \
+#    -t spinningup \
+#    ${@:2}
