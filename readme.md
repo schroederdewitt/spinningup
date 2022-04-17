@@ -6,12 +6,6 @@ Check out this repository. Install Docker.
 - Pull docker image: ```docker pull tensorflow/tensorflow:1.15.5-gpu-py3```
 - Run ```./build.sh```
 - Run ```./run.sh```
-
-Got to a new Terminal tab (keep container running in the other tab)
-
-- Run ```docker ps```
-- Note the ID of the running docker container.
-- Run ```docker exec -it <ID> /bin/bash```
 - Run ```PYTHONPATH=`pwd` python3 spinup/examples/pytorch/bench_ppo_cartpole.py```
 
 Make sure any experiment output is copied docker path ```/results``` before killing the docker container, else all is lost! This folder is mapped to ```~/spinningup/results``` on the host machine.

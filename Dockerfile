@@ -22,7 +22,6 @@ RUN pip3 install cloudpickle==1.2.1 gym[atari,box2d,classic_control]~=0.15.3 ipy
 RUN pip3 install matplotlib==3.1.1 mpi4py numpy pandas pytest psutil scipy seaborn==0.8.1 torch tqdm
 RUN /usr/bin/python3 -m pip install --upgrade pip
 
-
 # Other system level tools
 RUN apt-get install -y htop iotop
 
